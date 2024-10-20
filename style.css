@@ -12,7 +12,8 @@ h1{
     text-align:center;
     font-size:50px;
     padding:0;
-    height:50px;
+    color:red;
+    text-shadow:8px 8px 8px rgb(42, 33, 33) ;
 }
 #game{
     display: flex;
@@ -39,6 +40,9 @@ h1{
     font-size: 2.2rem;
     cursor: pointer;
 }
+.box:hover{
+    box-shadow: 1px 1px 10px  rgb(0, 255, 11);
+}
 #bomb{
     font-size: 2.2rem;
     display:none;
@@ -59,10 +63,20 @@ h1{
         transform: opacity(0);
     }
 }
-p{
+.para{
+    display: flex;
+    justify-content: center;
+}
+
+.para p{
     font-size: 25px;
     color:white;
+    margin-left: 50px;
     text-align: center;
+}
+#restart a{
+    text-decoration: none;
+    color:white;
 }
 @keyframes rotate{
     0%{
@@ -70,5 +84,31 @@ p{
     }
     100%{
         transform: rotate(360deg);
+    }
+}
+@media(max-width:510px){
+    .grid{
+        /* width: 100%; */
+        display: grid;
+        grid-gap: 2px;
+        grid-template-columns: repeat(5, 40px);
+        padding: 5px 20px;
+    }
+    .box{
+        width: 40px;
+        height: 40px;
+        background-color:#7c828a;
+        display: flex;
+        margin-top:2px;
+        margin-left:2px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 6px;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+    #bomb{
+        font-size: 1.2rem;
+        display:none;
     }
 }

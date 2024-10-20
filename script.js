@@ -9,8 +9,8 @@ for (let i = 0; i < 25; i++) {
 let box = Array.from(document.querySelectorAll('.box'));
 
 // let input = document.getElementById('nbm');
-// console.log(input.value)
-for (let i = 0; i < 1; i++) {
+// let n=parseInt(input.value);
+for (let i = 0; i <5 ; i++) {
     let randomIndex = Math.floor(Math.random() * 25);
     while (box[randomIndex].value === 'bomb') {
         randomIndex = Math.floor(Math.random() * 25);
@@ -31,7 +31,7 @@ function checkBomb() {
         diamond=0;
         bcount++;
         // console.log('Game Over');
-        if ((!audioPlayed) && bcount<1) {
+        if (!audioPlayed) {
             const audio2 = new Audio('16.mp3');
             audio2.play();
             audioPlayed = true;
@@ -59,7 +59,7 @@ function checkBomb() {
             if (box[i].value != "bomb") {
                 box[i].style.backgroundColor = "rgb(1, 17, 26)";
                 box[i].innerHTML = "💎";
-                box[i].style.opacity = "0.5";
+                box[i].style.opacity = "0.2";
                 box[i].style.color = "green";
             }
         }
@@ -69,7 +69,9 @@ function checkBomb() {
         diamond++;
         this.innerHTML = "💎"
         const audio3 = new Audio('15.mp3');
-        audio3.play();
+        if(bcount<1){
+            audio3.play();
+        }
         this.value = 'safe'
         count++;
         this.style.color = "green";
