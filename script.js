@@ -10,7 +10,7 @@ let box = Array.from(document.querySelectorAll('.box'));
 
 // let input = document.getElementById('nbm');
 // console.log(input.value)
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 1; i++) {
     let randomIndex = Math.floor(Math.random() * 25);
     while (box[randomIndex].value === 'bomb') {
         randomIndex = Math.floor(Math.random() * 25);
@@ -22,28 +22,29 @@ for (let i = 0; i < 5; i++) {
 
 let bomb = Array.from(document.querySelectorAll('#bomb'));
 let count = 0;
+let bcount=0;
 let diamond=0;
 let audioPlayed = false;
 let scoreDisplay = document.getElementById('score');
-
 function checkBomb() {
     if (this.value === "bomb") {
         diamond=0;
+        bcount++;
         // console.log('Game Over');
-        if (!audioPlayed) {
+        if ((!audioPlayed) && bcount<1) {
             const audio2 = new Audio('16.mp3');
             audio2.play();
             audioPlayed = true;
         }
         for (let i = 0; i < bomb.length; i++) {
             bomb[i].style.display = "block";
-            // setTimeout(()=>{
-            //     bomb[i].classList.add('rotate');
-            //     setTimeout(()=>{
-            //         bomb[i].classList.add('active');
+            setTimeout(()=>{
+                bomb[i].classList.add('rotate');
+                setTimeout(()=>{
+                    bomb[i].classList.add('active');
 
-            //     },1600)
-            // },200)
+                },1600)
+            },200)
         }
         for (let i = 0; i < box.length; i++) {
             if (box[i].value === 'bomb') {
@@ -73,13 +74,15 @@ function checkBomb() {
         count++;
         this.style.color = "green";
         this.removeEventListener('click', checkBomb);
-        updateScore();
+        if(bcount<1){
+            updateScore();
+        }
         checkWinner()
     }
 }
 
 function updateScore() {
-    scoreDisplay.textContent = diamond;  
+    scoreDisplay.textContent = diamond; 
 }
 
 function checkWinner() {
