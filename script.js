@@ -32,7 +32,7 @@ function checkBomb() {
         bcount++;
         // console.log('Game Over');
         if (!audioPlayed) {
-            const audio2 = new Audio('16.mp3');
+            const audio2 = new Audio('./asset/16.mp3');
             audio2.play();
             audioPlayed = true;
         }
@@ -68,7 +68,7 @@ function checkBomb() {
         this.style.backgroundColor = 'rgb(1, 17, 26)';
         diamond++;
         this.innerHTML = "💎"
-        const audio3 = new Audio('15.mp3');
+        const audio3 = new Audio('./asset/15.mp3');
         if(bcount<1){
             audio3.play();
         }

@@ -8,7 +8,7 @@ body{
     display:flex;
     justify-content: center;
     align-items: center;
-    background-image: url(hero1.jpg);
+    background-image: url(../asset/hero1.jpg);
     background-size: cover;
 }
 h1{
