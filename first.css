@@ -8,17 +8,24 @@ body{
     display:flex;
     justify-content: center;
     align-items: center;
-    background-image: url(hero.jpg);
+    background-image: url(hero1.jpg);
     background-size: cover;
 }
 h1{
     /* position:absolute;
     bottom:100px;
-    left:560px; */
-    margin-top:300px;
-}
+    left:560px;  */
+    margin-top:550px; 
+} 
 a{
     text-decoration: none;
-    font-size: 80px;
-    color: white;
+    font-size: 60px;
+    background-color: rgba(10, 153, 29, 0.2);
+    border-radius: 20px;
+    padding:0px 10px 0px 10px;
+    color: rgb(253, 245, 249);
+    text-shadow:10px 10px 10px rgb(11, 3, 7) ;
+}
+a:active{
+    box-shadow: 1px 1px 10px  rgb(99, 173, 117);
 }
